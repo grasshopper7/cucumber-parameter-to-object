@@ -21,6 +21,10 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 
 		typeRegistry.defineParameterType(new ParameterType<>("dishName", ".*?", Dish.class, (String s) -> new Dish(s)));
 
+		typeRegistry.defineParameterType(
+				new ParameterType<>("orderline", "(\\d)+ numbers of [\'\"]([a-zA-Z0-9_ ]*)[\'\"]", OrderLine.class,
+						(String[] args) -> new OrderLine(new Dish(args[1]), Integer.parseInt(args[0]))));
+
 	}
 
 	@Override
