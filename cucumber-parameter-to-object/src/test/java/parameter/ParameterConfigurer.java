@@ -1,8 +1,5 @@
 package parameter;
 
-import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -10,13 +7,8 @@ import java.util.stream.Collectors;
 
 import cucumber.api.TypeRegistry;
 import cucumber.api.TypeRegistryConfigurer;
-import io.cucumber.cucumberexpressions.ParameterByTypeTransformer;
-import io.cucumber.cucumberexpressions.ParameterType;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.datatable.DataTableType;
-import io.cucumber.datatable.TableCellByTypeTransformer;
-import io.cucumber.datatable.TableEntryByTypeTransformer;
-import io.cucumber.datatable.dependency.com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ParameterConfigurer implements TypeRegistryConfigurer {
 
