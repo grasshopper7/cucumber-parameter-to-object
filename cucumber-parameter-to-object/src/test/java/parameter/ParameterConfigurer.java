@@ -20,7 +20,6 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 		typeRegistry.setDefaultParameterTransformer(jacksonTableTransformer);
 		typeRegistry.setDefaultDataTableEntryTransformer(jacksonTableTransformer);
 		typeRegistry.setDefaultDataTableCellTransformer(jacksonTableTransformer);
-
 	}
 
 	@Override
@@ -47,7 +46,5 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 		public <T> T transform(String value, Class<T> cellType) {
 			return objectMapper.convertValue(value, cellType);
 		}
-
 	}
-
 }
