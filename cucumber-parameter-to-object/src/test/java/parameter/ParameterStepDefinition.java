@@ -13,14 +13,12 @@ public class ParameterStepDefinition {
 		System.out.println(date);
 	}
 
-	// Customer orders 'Spicy Meatballs' dish 2 numbers
 	@Given("Customer orders {dishName} dish {int} numbers")
 	public void customer_orders_numbers_of_dish(Dish dish, int quantity) {
 		OrderLine ol = new OrderLine(dish, quantity);
 		System.out.println(ol);
 	}
 
-	// Customer orders 4 numbers of 'Spaghetti Aglio E Olio' dish
 	@Given("Customer orders {orderline} dish")
 	public void customer_orders_numbers_of_dish(OrderLine ol) {
 		System.out.println(ol);
