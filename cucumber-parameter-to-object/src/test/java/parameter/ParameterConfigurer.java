@@ -16,7 +16,7 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 	@Override
 	public void configureTypeRegistry(TypeRegistry typeRegistry) {
 
-		JacksonTableTransformer jacksonTableTransformer = new JacksonTableTransformer();
+		JacksonTransformer jacksonTableTransformer = new JacksonTransformer();
 		typeRegistry.setDefaultParameterTransformer(jacksonTableTransformer);
 		typeRegistry.setDefaultDataTableEntryTransformer(jacksonTableTransformer);
 		typeRegistry.setDefaultDataTableCellTransformer(jacksonTableTransformer);
@@ -28,7 +28,7 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 		return Locale.ENGLISH;
 	}
 
-	private static final class JacksonTableTransformer
+	private static final class JacksonTransformer
 			implements ParameterByTypeTransformer, TableEntryByTypeTransformer, TableCellByTypeTransformer {
 
 		private final ObjectMapper objectMapper = new ObjectMapper();
