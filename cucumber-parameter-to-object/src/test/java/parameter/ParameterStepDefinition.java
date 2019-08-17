@@ -7,7 +7,6 @@ import cucumber.api.java.en.Given;
 
 public class ParameterStepDefinition {
 
-	// Table Number 4 orders 1 quantity "Espresso"
 	@Given("Table Number {} orders {} quantity {}")
 	public void table_Number_orders_quantity(Table table, int quantity, Dish dish) {
 		System.out.println(dish);
