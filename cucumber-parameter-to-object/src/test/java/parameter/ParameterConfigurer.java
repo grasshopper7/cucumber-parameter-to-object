@@ -16,10 +16,10 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 	@Override
 	public void configureTypeRegistry(TypeRegistry typeRegistry) {
 
-		JacksonTransformer jacksonTableTransformer = new JacksonTransformer();
-		typeRegistry.setDefaultParameterTransformer(jacksonTableTransformer);
-		typeRegistry.setDefaultDataTableEntryTransformer(jacksonTableTransformer);
-		typeRegistry.setDefaultDataTableCellTransformer(jacksonTableTransformer);
+		JacksonTransformer jacksonTransformer = new JacksonTransformer();
+		typeRegistry.setDefaultParameterTransformer(jacksonTransformer);
+		typeRegistry.setDefaultDataTableEntryTransformer(jacksonTransformer);
+		typeRegistry.setDefaultDataTableCellTransformer(jacksonTransformer);
 	}
 
 	@Override
