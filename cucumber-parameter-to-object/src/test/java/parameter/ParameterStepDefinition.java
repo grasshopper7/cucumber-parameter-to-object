@@ -7,28 +7,28 @@ import cucumber.api.java.en.Given;
 
 public class ParameterStepDefinition {
 
-	@Given("Customer orders the dishes")
-	public void customer_Orders_the_dishes(List<OrderLine> orderLines) {
-		System.out.println(orderLines);
+	@Given("List<E> Dish Types at restaurant")
+	public void dish_Types_at_Restaurant_list(List<String> dishTypes) {
+		System.out.println(dishTypes);
+	}
+	
+	@Given("List<List<E>> Dishes at restaurant")
+	public void dishes_at_Restaurant_list_of_list(List<List<String>> dishDetails) {
+		System.out.println(dishDetails);
+	}
+	
+	@Given("List<Map<K,V>> Dishes at restaurant")
+	public void dishes_at_Restaurant_list_of_map(List<Map<String,String>> dishDetails) {
+		System.out.println(dishDetails);
+	}
+	
+	@Given("Map<K,V> Dishes at restaurant")
+	public void dishes_at_Restaurant_map(Map<Integer,String> dishDetails) {
+		System.out.println(dishDetails);
 	}
 
-	@Given("Customer orders the below dishes")
-	public void customer_Orders_the_below_dishes(Map<OrderLineId, OrderLine> orderLines) {
-		System.out.println(orderLines);
-	}
-
-	@Given("Customer orders the following dishes")
-	public void customer_Orders_the_followng_dishes(Map<Integer, OrderLine> orderLines) {
-		System.out.println(orderLines);
-	}
-
-	@Given("Dishes in menu")
-	public void dishes_in_Menu(List<Dish> dishes) {
-		System.out.println(dishes);
-	}
-
-	@Given("Menu dishes")
-	public void menu_Dishes(Menu menu) {
-		System.out.println(menu);
+	@Given("Map<K,List<V>> Dishes at restaurant")
+	public void dishes_at_Restaurant_map_of_list(Map<Integer,List<String>> dishDetails) {
+		System.out.println(dishDetails);
 	}
 }

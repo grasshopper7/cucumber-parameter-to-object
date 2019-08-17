@@ -1,36 +1,45 @@
-Feature: DataTable to Object Collection Conversion
+Feature: DataTable to Simple Collection Conversion
 
-  Scenario: List<OrderLine> -- TableEntryTransformer
-    Given Customer orders the dishes
-      | dish            | quantity |
-      | Spicy Meatballs |        2 |
-      | Fried Gnocchi   |        2 |
-      | Espresso        |        3 |
+  # List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V>, Map<K, List<V>>
+  # E,K,V must be a String, Integer, Float, Double, Byte, Short, Long, BigInteger or BigDecimal.
+  
+  Scenario: List<String>
+    Given List<E> Dish Types at restaurant
+      | Appetizer |
+      | Pasta     |
+      | Pizza     |
+      | Dessert   |
+      | Beverage  |
 
-  Scenario: Map<OrderLineId,OrderLine> -- TableCellTransformer, TableEntryTransformer
-    Given Customer orders the below dishes
-      |   | dish                   | quantity |
-      | 1 | Spicy Meatballs        |        2 |
-      | 2 | Fried Gnocchi          |        2 |
-      | 3 | Spaghetti Aglio E Olio |        4 |
+  Scenario: List<List<String>>
+    Given List<List<E>> Dishes at restaurant
+      | 1 | Appetizer | Spicy Meatballs      |
+      | 2 | Pasta     | Sausage Pappardelle  |
+      | 3 | Pizza     | Chicken Alla Diavola |
+      | 4 | Dessert   | Nocha Mousse         |
+      | 5 | Beverage  | Macchiato            |
 
-  Scenario: Map<Integer,OrderLine> -- TableEntryTransformer
-    Given Customer orders the following dishes
-      |   | dish                   | quantity |
-      | 1 | Spicy Meatballs        |        2 |
-      | 2 | Fried Gnocchi          |        2 |
-      | 3 | Spaghetti Aglio E Olio |        4 |
+  Scenario: List<Map<String,String>>
+    Given List<Map<K,V>> Dishes at restaurant
+      | id | type      | dish                 |
+      |  1 | Appetizer | Spicy Meatballs      |
+      |  2 | Pasta     | Sausage Pappardelle  |
+      |  3 | Pizza     | Chicken Alla Diavola |
+      |  4 | Dessert   | Nocha Mousse         |
+      |  5 | Beverage  | Macchiato            |
+
+  Scenario: Map<Integer,String>>
+    Given Map<K,V> Dishes at restaurant
+      | 1 | Spicy Meatballs      |
+      | 2 | Sausage Pappardelle  |
+      | 3 | Chicken Alla Diavola |
+      | 4 | Nocha Mousse         |
+      | 5 | Macchiato            |
       
-  Scenario: List<Dish> no headers -- TableRowTransformer
-    Given Dishes in menu
-      | Chicken Milanese     | APPETIZER |
-      | Sausage Pappardelle  | PASTA     |
-      | Chicken Alla Diavola | PIZZA     |
-
-  Scenario: Menu Contents -- TableTransformer
-    Given Menu dishes
-      | dish                 | type      |
-      | Chicken Milanese     | APPETIZER |
-      | Sausage Pappardelle  | PASTA     |
-      | Chicken Alla Diavola | PIZZA     |
-
+        Scenario: Map<Integer,List<String>>
+    Given Map<K,List<V>> Dishes at restaurant
+      |  1 | Appetizer | Spicy Meatballs      |
+      |  2 | Pasta     | Sausage Pappardelle  |
+      |  3 | Pizza     | Chicken Alla Diavola |
+      |  4 | Dessert   | Nocha Mousse         |
+      |  5 | Beverage  | Macchiato            |
