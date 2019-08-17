@@ -2,6 +2,7 @@ package parameter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import cucumber.api.java.en.Given;
 
@@ -9,8 +10,9 @@ public class ParameterStepDefinition {
 
 	@Given("Customer orders at {orderTime} on {orderDate}")
 	public void customer_orders_at_on(LocalTime time, LocalDate date) {
-		System.out.println(time);
-		System.out.println(date);
+		String timeText = time.format(DateTimeFormatter.ofPattern("h:m:s a"));
+		String dateText = date.format(DateTimeFormatter.ofPattern("d MMM yyyy"));
+		System.out.println("Order paced at " + timeText + " on " + dateText);
 	}
 
 	@Given("Customer orders {dishName} dish {int} numbers")
