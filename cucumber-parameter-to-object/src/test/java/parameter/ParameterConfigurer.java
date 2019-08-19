@@ -19,6 +19,9 @@ public class ParameterConfigurer implements TypeRegistryConfigurer {
 		typeRegistry.defineDataTableType(new DataTableType(OrderLine.class,
 				(Map<String, String> entry) -> new OrderLine(new Dish(entry.get("dish")),
 						Integer.parseInt(entry.get("quantity")))));
+		
+		//Simpler version of above. Need empty constructor and headers match variables in target object.
+		//typeRegistry.defineDataTableType(DataTableType.entry(OrderLine.class));
 
 		// TableCellTransformer
 		typeRegistry.defineDataTableType(
